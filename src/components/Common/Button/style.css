@@ -1,0 +1,36 @@
+.btn{
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 0.5rem 1.5rem;
+    border-radius: 3rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid var(--blue);
+    text-align: center;
+    min-width: 100px;
+    /* make all the text passes as a props should be capitalized first cap the small */
+    text-transform: capitalize; 
+}
+
+.btn:hover{
+    box-shadow: 6px 9px 0px 0px rgba(66, 109, 237, 0.2);
+    transition: all .3s;
+}
+
+.outlined-btn{
+    background-color: var(--black);
+    color: var(--white);
+    border: 2px solid var(--blue);
+    padding: 0.5rem 1.5rem;
+    border-radius: 3rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    min-width: 100px;
+    text-transform: capitalize; 
+}
+
+.outlined-btn:hover{
+  background-color: var(--blue);
+  transition: all .3s;
+}
