@@ -3,15 +3,16 @@ import './style.css'
 import TemporaryDrawer from './drawer'
 import Button from '../Button'
 import { Dashboard } from '@mui/icons-material'
-const index = () => {
+import { Link } from 'react-router-dom'
+const Header = () => {
   return (
     <div className='navbar'>
        <h1 className='logo'>CryptoTracker<span style={{color:"var(--blue)"}}>.</span></h1>
        <div className='links'>
-       <a  href='/'>     <p className='link'>Home</p>  </a>
-       <a  href='/'>     <p className='link'>Compare</p>  </a>
-       <a  href='/'>     <p className='link'>WatchList</p>  </a>
-       <a  href='#'>    <Button text={"Dashboard"} onClick={()=>{console.log("btn-clicked")}} outlined={false}/> </a>
+       <Link  to='/'>     <p className='link'>Home</p>  </Link>
+       <Link to='/compare'>     <p className='link'>Compare</p>  </Link>
+       <Link  to='/watchlist'>     <p className='link'>WatchList</p>  </Link>
+       <Link  to='/dashboard'>    <Button text={"Dashboard"} onClick={()=>{console.log("btn-clicked")}} outlined={false}/> </Link>
        
        </div>
        <div className='Mobile-Drawer'><TemporaryDrawer/></div>
@@ -20,4 +21,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Header

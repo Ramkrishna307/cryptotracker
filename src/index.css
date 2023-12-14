@@ -4,12 +4,12 @@
 
 :root{
     --white:#F8F8FF;
-    --black:#111;
+    --black:#111111;
     --blue:#4169e1;
     --grey:	#808080;
-    --darkgrey:#A9A9A9;
-    --green:#008000;
-    --red:#ff0000;
+    --darkgrey:#1d1e22;
+    --green:#228B22;
+    --red:#D22B2B;
 
 }
 
@@ -58,4 +58,12 @@ body{
   }
   
 
- 
+ /* disable the image dragging in the webpage */
+
+ img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  }
