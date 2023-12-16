@@ -1,0 +1,11 @@
+.flex-pageint{
+    display: flex;
+    justify-content: center;
+    align-items:  center;
+    margin-bottom: 2.5rem;
+}
+
+/* .page-int .MuiPaginationItem-root {
+    background-color: yellow;
+    color: black;
+  } */

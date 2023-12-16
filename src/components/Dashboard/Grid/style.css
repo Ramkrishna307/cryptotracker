@@ -74,6 +74,7 @@
     color: var(--green);
     font-size: 1rem;
     font-weight:  600;
+    min-width: 64px; 
 }
 .price-chip:hover,.icon-chip:hover{
     color: var(--white);

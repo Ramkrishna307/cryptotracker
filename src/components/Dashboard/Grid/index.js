@@ -10,7 +10,7 @@ const  Grid = ({coin}) => {
      
        <div className='head-info'>
        <div className='info-flex'>
-            <img src={coin.image} className='coin-logo'/>
+            <img src={coin.image} className='coin-logo' />
         </div>
         <div className='name-col'>
             <p className='coin-symbol'>

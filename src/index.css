@@ -22,7 +22,7 @@ body{
     background-color: var(--black);
     color: #fff;
     font-family: 'Inter', sans-serif;
-    height: 200vh;
+    /* height: 200vh; */
 }
 
 ::selection{
