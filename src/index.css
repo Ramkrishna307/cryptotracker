@@ -25,6 +25,11 @@ body{
     /* height: 200vh; */
 }
 
+  /* new thing we are setting the scrool  */
+  html{
+    scroll-behavior: smooth;
+  }
+
 ::selection{
     background: var(--blue);
     color: #fff;
@@ -66,4 +71,13 @@ body{
   -moz-user-drag: none;
   -o-user-drag: none;
   user-drag: none;
+  }
+
+  .dark-wrapper{
+    width: 90%;
+    display: block;
+    background-color: var(--darkgrey);
+    margin: 1.5rem auto;
+    border-radius: 0.5rem;
+    padding: 0rem 0.5rem;
   }
