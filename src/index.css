@@ -73,11 +73,12 @@ body{
   user-drag: none;
   }
 
-  .dark-wrapper{
+  .grey-wrapper{
     width: 90%;
     display: block;
     background-color: var(--darkgrey);
-    margin: 1.5rem auto;
+    margin: 1.5rem auto ;
     border-radius: 0.5rem;
     padding: 0rem 0.5rem;
   }
+

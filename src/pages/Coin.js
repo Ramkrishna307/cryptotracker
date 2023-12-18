@@ -5,6 +5,7 @@ import Loader from '../components/Common/Loader'
 import axios from 'axios'
 import { coinObject } from '../functions/convertObject'
 import List from '../components/Dashboard/List'
+import CoinInfo from '../components/Coin/CoinInfo'
 
 const CoinPage = () => {
   const {id}=useParams()
@@ -25,6 +26,9 @@ const CoinPage = () => {
      setisLoading(false)
      console.log(error)
     })
+
+
+    axios.get()
     }
  }, [id])
  
@@ -33,7 +37,10 @@ const CoinPage = () => {
     <div><Header/>
     { isLoading ? 
 
-   <Loader/> :   <div className='dark-wrapper'> <List coin={coindata}/> </div>
+   <Loader/> :   <div className='grey-wrapper'> 
+   <List coin={coindata}/> 
+   <CoinInfo heading={coindata.name} desc={coindata.desc}/>
+   </div>
 
     }
  
