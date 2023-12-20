@@ -27,15 +27,15 @@ export default function TogglePriceButton({priceType,handlePriceTypeChange}) {
           }}
 
       color="primary"
-      value={alignment}
+      value={priceType}
       exclusive
-      onChange={handleChange}
+      onChange={handlePriceTypeChange}
       aria-label="Platform"
 
     >
-      <ToggleButton value="price" className='toggle-btn'>Price</ToggleButton>
-      <ToggleButton value="market_cap" className='toggle-btn'>Market Cap</ToggleButton>
-      <ToggleButton value="volume" className='toggle-btn'>Volume</ToggleButton>
+      <ToggleButton value="prices" className='toggle-btn'>Price</ToggleButton>
+      <ToggleButton value="market_caps" className='toggle-btn'>Market Cap</ToggleButton>
+      <ToggleButton value="total_volumes" className='toggle-btn'>Volume</ToggleButton>
     </ToggleButtonGroup>
   </div>
   );

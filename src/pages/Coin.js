@@ -20,7 +20,8 @@ const CoinPage = () => {
   const[coindata,setCoindata]=useState();
   const[days,setDays]=useState(14);
   const[chartData,setchartData]=useState({});
-  const [priceType, setPriceType] = useState('price');
+  const [priceType, setPriceType] = useState("prices"); // default value is "price"
+  
 
   useEffect(() => {
     if(id){
@@ -34,7 +35,7 @@ const CoinPage = () => {
     if(data){
       coinObject(setCoindata,data);
   
-      const prices=await getCoinPrices(id,days);
+      const prices=await getCoinPrices(id,days,priceType);
       console.log("got my prices",prices);
  
       if( prices.length>0){
@@ -69,15 +70,22 @@ const CoinPage = () => {
  const handleDaysChange = async(event) => {
   setisLoading(true)
   setDays(event.target.value);
-  const prices=await getCoinPrices(id,event.target.value);
+  const prices=await getCoinPrices(id,event.target.value,priceType);
   if( prices.length>0){
  settingChartDataByDays(setchartData,prices)
   setisLoading(false);
   }
 };
  
-const handleChange = (event, newAlignment) => {
-  setPriceType(newAlignment);
+const handlePriceTypeChange =async (event, priceType) => {
+setisLoading(true);
+setPriceType(priceType);
+const prices=await getCoinPrices(id,days,priceType);
+if(prices.length>0){
+  settingChartDataByDays(setchartData,prices);
+  setisLoading(false);
+}
+
 };
 
  
