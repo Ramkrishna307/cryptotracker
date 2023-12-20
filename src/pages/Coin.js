@@ -10,6 +10,9 @@ import { getCoinData } from '../functions/getCoinData'
 import { getCoinPrices } from '../functions/getCoinPrices'
 import LineChart from '../components/Coin/LineChart'
 import { convertDate } from '../functions/convertDate'
+import SelectDays from '../components/Coin/SelectDays'
+import {settingChartDataByDays } from '../functions/settingChartData'
+import TogglePriceButton from '../components/Coin/TogglePriceButton'
 
 const CoinPage = () => {
   const {id}=useParams()
@@ -17,6 +20,7 @@ const CoinPage = () => {
   const[coindata,setCoindata]=useState();
   const[days,setDays]=useState(14);
   const[chartData,setchartData]=useState({});
+  const [priceType, setPriceType] = useState('price');
 
   useEffect(() => {
     if(id){
@@ -61,7 +65,21 @@ const CoinPage = () => {
       
     }
  }
+
+ const handleDaysChange = async(event) => {
+  setisLoading(true)
+  setDays(event.target.value);
+  const prices=await getCoinPrices(id,event.target.value);
+  if( prices.length>0){
+ settingChartDataByDays(setchartData,prices)
+  setisLoading(false);
+  }
+};
  
+const handleChange = (event, newAlignment) => {
+  setPriceType(newAlignment);
+};
+
  
   return (
     <div><Header/>
@@ -70,6 +88,8 @@ const CoinPage = () => {
    <Loader/> :   <div className='grey-wrapper'> 
    <List coin={coindata}/> 
   <div className='grey-wrapper'>
+    <SelectDays days={days} handleDaysChnage={handleDaysChange}/>
+     <TogglePriceButton priceType={priceType} handlePriceTypeChange={handlePriceTypeChange}/>
    <LineChart chartData={chartData} />
   </div>
    <CoinInfo heading={coindata.name} desc={coindata.desc}/>

@@ -19,18 +19,9 @@ export default function PaginationComp({page,handlePageChange}) {
 
 //   }
 const style = {
-    // Base styles for dark theme
+    
     color: "var(--white)",
-    // backgroundColor: "var(--dark-gray)",
-  
-    // "& .MuiPaginationItem-root": {
-    //   border: "1px solid var(--border-gray)",
-    //   borderRadius: "4px",
-    //   margin: "0 4px",
-    //   "&:hover": {
-    //     backgroundColor: "var(--hover-gray)",
-    //   },
-    // },
+ 
   
     "& .Mui-selected": {
       backgroundColor: "var(--blue) !improtant",
