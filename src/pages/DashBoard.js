@@ -7,6 +7,7 @@ import Serach from '../components/Dashboard/Search';
 import PaginationComp from '../components/Dashboard/Pagination';
 import Loader from '../components/Common/Loader'
 import BackToTop from '../components/Common/BackToTop';
+import get100Coins from '../functions/get100Coins';
 
 const DashBoardPage = () => {
 const[coins,setCoins]=useState([]);
@@ -36,22 +37,22 @@ var filterCoins = coins.filter((item) => {
 
  
 useEffect(() => {
-   axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en").then(
-    (response)=>{
-        console.log("Response>>",response);
-        setCoins(response.data);
-        setPageinatiedCoins(response.data.slice(0,10))
-        setisLoading(false)
-        
-    }
-   ).catch((error)=>{
-    setisLoading(false)
-    console.log(error)
-   })
+  getData()
+
 }, [])
 
 
 console.log("data is set perfectly",coins)
+
+const getData= async()=>{
+  const my100Coins=await get100Coins();
+if(my100Coins){
+  setCoins(my100Coins);
+  setPageinatiedCoins(my100Coins.slice(0,10))
+  setisLoading(false)
+}
+        
+}
   return (
 <>
 

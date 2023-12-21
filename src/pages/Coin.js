@@ -98,7 +98,7 @@ if(prices.length>0){
   <div className='grey-wrapper'>
     <SelectDays days={days} handleDaysChnage={handleDaysChange}/>
      <TogglePriceButton priceType={priceType} handlePriceTypeChange={handlePriceTypeChange}/>
-   <LineChart chartData={chartData} />
+   <LineChart chartData={chartData}  priceType={priceType} />
   </div>
    <CoinInfo heading={coindata.name} desc={coindata.desc}/>
    </div>

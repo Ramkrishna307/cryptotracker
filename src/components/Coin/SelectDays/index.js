@@ -5,7 +5,7 @@ import Select from '@mui/material/Select';
 
 import './style.css';
 
-export default function SelectDays({days,handleDaysChnage}) {
+export default function SelectDays({days,handleDaysChnage,nPTag}) {
   // const [days, setDays] = useState(30);
 
   // const handleChange = (event) => {
@@ -14,7 +14,7 @@ export default function SelectDays({days,handleDaysChnage}) {
 
   return (
     <div className='select-days'>
-      <p>Price Change in the last</p>
+     {!nPTag ??  <p>Price Change in the last</p>}
       <Select
        sx={{
         height: "2.5rem",
