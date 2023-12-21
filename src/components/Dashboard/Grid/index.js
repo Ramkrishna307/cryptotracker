@@ -4,8 +4,11 @@ import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import './style.css'
 import { green } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
-const  Grid = ({coin}) => {
- 
+import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
+const  Grid = ({coin,star,setStar}) => {
+   const handleStarClick=()=>{
+     setStar(...star,coin.id);
+   }
   return (
    <Link  to={`/coin/${coin.id}`}>
    
@@ -23,6 +26,7 @@ const  Grid = ({coin}) => {
           {coin.name}
           </p>
       </div>
+      <div onClick={handleStarClick}><StarBorderRoundedIcon/></div>
      </div>
 
       {coin.price_change_percentage_24h>0  ?

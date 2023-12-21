@@ -5,7 +5,10 @@ import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import Tooltip from '@mui/material/Tooltip';
 import { convertNumber } from '../../../functions/convertNumbers';
 import { Link } from 'react-router-dom';
-const List= ({coin}) => {
+const List= ({coin,star,setStar}) => {
+   const handleStarClick=()=>{
+      setStar(...star,coin.id);
+    }
   return (
 <Link  to={`/coin/${coin.id}`}>
    <tr className='list-row'>

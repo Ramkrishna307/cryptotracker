@@ -9,7 +9,7 @@ import Grid from '../Grid';
 import './style.css'
 import List from '../List';
 
-export default function TabsComponent({coins}) {
+export default function TabsComponent({coins,star,setStar}) {
   const [value, setValue] = useState('grid');
   console.log("okay i am arrive",coins);
 
@@ -55,7 +55,7 @@ export default function TabsComponent({coins}) {
         {/* <p>Grid</p> */}
          { coins.map((coin,i)=>{
             return(
-              <Grid coin={coin} key={i}/>
+              <Grid coin={coin} key={i} star={star} setStar={setStar}/>
             )
          })
         }
@@ -68,7 +68,7 @@ export default function TabsComponent({coins}) {
         
         { coins.map((coin,i)=>{
            return(
-             <List coin={coin} key={i}/>
+             <List coin={coin} key={i} star={star} setStar={setStar}/>
            )
         })
        }
