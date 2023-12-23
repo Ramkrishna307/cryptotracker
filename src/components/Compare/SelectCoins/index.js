@@ -51,7 +51,7 @@ const SelectCoins = ({crypto1,crypto2,handleCrypto}) => {
           label="crypto 1"
           onChange={(event) => handleCrypto(event, false)}
         >
-          {allCoins.map((coin) => (
+          {allCoins && allCoins.map((coin) => (
             <MenuItem key={coin.id} value={coin.id}>
               {coin.name}
             </MenuItem>

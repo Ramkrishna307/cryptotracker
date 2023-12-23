@@ -14,30 +14,7 @@ const[search,setSearch]=useState("");
 const [page, setPage] = useState(1);
 const[isLoading,setisLoading]=useState(true)
 
-
-const [star, setStar] = useState(() => {
-  // Retrieve star data from local storage during initialization
-  const starData = localStorage.getItem('star');
-  return starData ? JSON.parse(starData) : [];
-});
-
-// Save star state to local storage whenever it changes
-useEffect(() => {
-  localStorage.setItem('star', JSON.stringify(star));
-}, [star]);
-
-// Getting the star coin from this function
-var filterCoinStar = star.map((staritem) => {
-  let mydata = coins.filter((item) => {
-    return item.id.includes(staritem);
-  });
-  return mydata;
-});
   
-
-
-
-
 //handling the page iniatiation....
    const handlePageChange = (event, value) => {
      setPage(value);

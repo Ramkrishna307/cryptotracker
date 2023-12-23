@@ -2,80 +2,63 @@ import React, { useEffect, useState } from 'react';
 import Header from '../components/Common/Header';
 import TabsComponent from '../components/Dashboard/Tabs';
 import BackToTop from '../components/Common/BackToTop';
-import Search from '../components/Dashboard/Search';
-import PaginationComp from '../components/Dashboard/Pagination';
-import Loader from '../components/Common/Loader';
 import get100Coins from '../functions/get100Coins';
+import Button from '../components/Common/Button';
 
 const WatchListPage = () => {
-  const [coins, setCoins] = useState([]);
-  const [pageinatiedcoins, setPageinatiedCoins] = useState([]);
-  const [search, setSearch] = useState('');
-  const [page, setPage] = useState(1);
-  const [isLoading, setisLoading] = useState(true);
-  const [star, setStar] = useState([]);
+  const watchlist = localStorage.getItem("watchlist")
+  ? localStorage.getItem("watchlist").split(",")
+  : [];
 
-  // Handling the page initiation....
-  const handlePageChange = (event, value) => {
-    setPage(value);
-    var previousIndex = (value - 1) * 10;
-    setPageinatiedCoins(coins.slice(previousIndex, previousIndex + 10));
-  };
+const [coins, setCoins] = useState([]);
 
-  const onSearchChange = (e) => {
-    setSearch(e.target.value);
-  };
+useEffect(() => {
+  console.log("watchlist was changed");
+}, [watchlist]);
 
-  // Getting the filter coin from this function
-  var filterCoins = coins.filter((item) => {
-    return (
-      item.name.toLowerCase().includes(search.toLowerCase()) ||
-      item.symbol.toLowerCase().includes(search.toLowerCase())
-    );
-  });
+useEffect(() => {
+  getData();
+}, []);
 
-  useEffect(() => {
-    getData();
-    // Retrieve star data from local storage during initialization
-    const starData = localStorage.getItem('star');
-    if (starData) {
-      setStar(JSON.parse(starData));
-    }
-  }, []);
+const getData = async () => {
+  const response = await get100Coins();
+  var myCoins = response.filter((coins) => watchlist.includes(coins.id));
+  setCoins(myCoins);
+};
 
-  console.log('data is set perfectly from watchlist page', coins);
-
-  const getData = async () => {
-    const my100Coins = await get100Coins();
-    if (my100Coins) {
-      setCoins(my100Coins);
-      setPageinatiedCoins(my100Coins.slice(0, 10));
-      setisLoading(false);
-    }
-  };
-
-  // Filter coins based on star state
-  const starCoins = coins.filter((item) => star.includes(item.id));
-
-  return (
+return (
+  <div>
+    <Header />
     <div>
-      <Header />
-      <BackToTop />
-      {isLoading ? (
-        <Loader />
+      {coins.length > 0 ? (
+        <TabsComponent data={coins} />
       ) : (
-        <>
-          <div>
-            <Search search={search} onSearchChange={onSearchChange} />
-            {search ? <TabsComponent coins={filterCoins} /> : <TabsComponent coins={pageinatiedcoins} />}
-            <PaginationComp page={page} handlePageChange={handlePageChange} />
+        <div>
+          <h1 style={{ textAlign: "center" }}>
+            Your watchlist is Currently Empty
+          </h1>
+          <p style={{ textAlign: "center", color: "var(--grey)" }}>
+            Please Add Coins in your watchlist
+          </p>
+          <div
+            style={{
+              marginTop: "2rem",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <a href="/dashboard">
+              <Button text="Dashboard" />
+            </a>
           </div>
-          <h2>Starred Coins:</h2>
-          <TabsComponent coins={starCoins} />
-        </>
+        </div>
       )}
     </div>
-  );
+    <BackToTop/>
+    {/* <Footer /> */}
+  </div>
+);
 };
 
 export default WatchListPage;
