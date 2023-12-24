@@ -13,6 +13,7 @@ import { convertDate } from '../functions/convertDate'
 import SelectDays from '../components/Coin/SelectDays'
 import {settingChartDataByDays } from '../functions/settingChartData'
 import TogglePriceButton from '../components/Coin/TogglePriceButton'
+import Footer from '../components/Footer'
 
 const CoinPage = () => {
   const {id}=useParams()
@@ -104,7 +105,7 @@ if(prices.length>0){
    </div>
 
     }
- 
+ <Footer/>
     
     </div>
   )

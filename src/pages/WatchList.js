@@ -11,7 +11,7 @@ const WatchListPage = () => {
   : [];
 
 const [coins, setCoins] = useState([]);
-
+console.log("Data... watchlist",coins);
 useEffect(() => {
   console.log("watchlist was changed");
 }, [watchlist]);
@@ -30,8 +30,8 @@ return (
   <div>
     <Header />
     <div>
-      {coins.length > 0 ? (
-        <TabsComponent data={coins} />
+      {coins && coins.length > 0 ? (
+        <TabsComponent coins={coins} />
       ) : (
         <div>
           <h1 style={{ textAlign: "center" }}>

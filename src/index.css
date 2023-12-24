@@ -85,6 +85,20 @@ body{
   display: flex;
   justify-content: flex-start;
   align-items:  center;
-  margin: 1.5rem;
+
   gap: 2rem;
+}
+/* Add these styles to your CSS file */
+/* .home-page-flex {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the container takes at least the full height of the viewport */
+/* } */
+
+/* .main-content {
+  flex: 1; Make the main content flexible to take remaining space
+}  */
+
+.heading-info{
+  margin: 1rem 1.5rem;
 }

@@ -4,6 +4,8 @@ import Button from '../../Common/Button';
 import phone1 from'../../../assets/phone1.png'
 import gradient1 from'../../../assets/gradient1.png'
 import { motion } from 'framer-motion';
+import Footer from '../../Footer';
+import { Link } from 'react-router-dom';
 const MainComponent = () => {
   return (
     <div className='flex-info'>
@@ -31,7 +33,7 @@ const MainComponent = () => {
              initial={{opacity:0, x:50}}
              animate={{opacity:1,x:0}}
              transition={{transition:0.7,delay:1.5,type:"smooth"}}>
-                <Button text={"Dashboard"} outlined={false}/>
+               <Link  to='/dashboard'>    <Button text={"Dashboard"} onClick={()=>{console.log("btn-clicked")}} outlined={false}/> </Link>
                 <Button text={"Share"} outlined={true}/>
             </motion.div>
 
@@ -58,7 +60,7 @@ const MainComponent = () => {
               }}/> 
 
         </div>
-
+        
     </div>
   )
 }

@@ -6,6 +6,7 @@ import PaginationComp from '../components/Dashboard/Pagination';
 import Loader from '../components/Common/Loader'
 import BackToTop from '../components/Common/BackToTop';
 import get100Coins from '../functions/get100Coins';
+import Footer from '../components/Footer';
 
 const DashBoardPage = () => {
 const[coins,setCoins]=useState([]);
@@ -46,6 +47,7 @@ console.log("data is set perfectly",coins)
 
 const getData= async()=>{
   const my100Coins=await get100Coins();
+  
 if(my100Coins){
   setCoins(my100Coins);
   setPageinatiedCoins(my100Coins.slice(0,10))
@@ -73,7 +75,7 @@ isLoading ? <Loader/> :
 
 }
 
-
+<Footer/>
 
 </>
   )

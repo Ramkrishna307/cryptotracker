@@ -4,6 +4,7 @@
    background-color: var(--darkgrey);
    border: 2px solid var(--darkgrey); 
    border-radius: 0.75rem;
+   min-width: 300px;
    /* margin: 1rem 1.5rem; */
 }
 .grid-container:hover{
@@ -121,4 +122,12 @@
 }
 .bookmark-icon{
    
+}
+
+
+
+@media only screen and (max-width: 400px) {
+    .grid-container{
+        margin: auto;
+    }
 }
