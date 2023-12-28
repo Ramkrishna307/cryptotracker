@@ -6,12 +6,15 @@ const get100Coins=()=>{
             console.log("Response>>",response);
             return(response.data);
           
-            
+           
         }
        ).catch((error)=>{
  
         console.log(error)
        })
+       
+       
        return myCoins
+       
 }
 export default get100Coins
