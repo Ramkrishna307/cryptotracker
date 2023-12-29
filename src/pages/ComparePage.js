@@ -62,7 +62,7 @@ const Compare = () => {
                 {
                   label: cointemp1.name,
                   data: prices1.map(entry => entry[1]),
-                  yAxisID: 'coin1',
+                  yAxisID: 'y',
                   borderColor:"#3a80e9",
                   pointRadius:0,
                   tension:0.25,
@@ -72,7 +72,7 @@ const Compare = () => {
                 {
                   label: cointemp2.name,
                   data: prices2.map(entry => entry[1]),
-                  yAxisID: 'coin2',
+                  yAxisID: 'y1',
                   borderColor:"#61c96f",
                   pointRadius:0,
                   tension:0.25,
