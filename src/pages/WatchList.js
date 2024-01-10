@@ -4,6 +4,7 @@ import TabsComponent from '../components/Dashboard/Tabs';
 import BackToTop from '../components/Common/BackToTop';
 import get100Coins from '../functions/get100Coins';
 import Button from '../components/Common/Button';
+import Footer from '../components/Footer';
 
 const WatchListPage = () => {
   const watchlist = localStorage.getItem("watchlist")
@@ -56,7 +57,7 @@ return (
       )}
     </div>
     <BackToTop/>
-    {/* <Footer /> */}
+    <Footer />
   </div>
 );
 };

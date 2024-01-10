@@ -19,7 +19,9 @@
 }
 
 .track-crypto-heading:hover
-{   color: var(--black);
+{   
+    
+    color: var(--black);
 
     /* new thing with stroke */
     -webkit-text-stroke-width: 3px;

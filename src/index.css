@@ -22,13 +22,14 @@ body{
     background-color: var(--black);
     color: #fff;
     font-family: 'Inter', sans-serif;
-    /* height: 200vh; */
+    
 }
 
   /* new thing we are setting the scrool  */
   html{
     scroll-behavior: smooth;
   }
+/*Custom Selection */
 
 ::selection{
     background: var(--blue);

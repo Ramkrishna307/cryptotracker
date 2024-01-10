@@ -20,13 +20,13 @@ function Footer() {
         <a href="/">
           <InstagramIcon className="socials-icon" />
         </a>
-        <a href="mailto:avivashishta@gmail.com">
+        <a href="mailto:ramkrishnaroy624@gmail.com">
           <EmailIcon className="socials-icon" />
         </a>
         <RWebShare
           data={{
-            text: "Crypto Dashboard made using React JS in 2022",
-            url: "https://crypto-dashboard-nov.netlify.app/",
+            text: "Crypto Dashboard made using React JS in 2023",
+            url: "https://resonant-sopapillas-af5a07.netlify.app/",
             title: "Crypto Dashboard",
           }}
           onClick={() => console.log("shared successfully!")}
