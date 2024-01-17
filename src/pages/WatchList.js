@@ -57,7 +57,7 @@ return (
       )}
     </div>
     <BackToTop/>
-    <Footer />
+    {/* <Footer /> */}
   </div>
 );
 };
